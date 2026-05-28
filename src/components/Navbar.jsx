@@ -47,8 +47,8 @@ export default function Navbar() {
               to={path}
               className={({ isActive }) =>
                 isActive
-                  ? "rounded-full bg-slate-950 px-5 py-3 text-sm font-black text-white shadow-md"
-                  : "rounded-full px-5 py-3 text-sm font-bold text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                  ? "rounded-full bg-[#B91C1C] px-5 py-3 text-sm font-black text-white shadow-md shadow-red-200"
+                  : "rounded-full px-5 py-3 text-sm font-bold text-slate-600 transition hover:bg-red-50 hover:text-[#B91C1C]"
               }
             >
               {label}
@@ -74,14 +74,20 @@ export default function Navbar() {
 
         <button
           onClick={() => setOpen(!open)}
-          className="grid h-12 w-12 place-items-center rounded-2xl border border-slate-200 bg-white text-slate-950 shadow-sm lg:hidden"
+          className="grid h-12 w-12 place-items-center rounded-2xl border border-slate-200 bg-white text-[#B91C1C] shadow-sm transition active:scale-95 lg:hidden"
         >
           {open ? <X /> : <Menu />}
         </button>
       </div>
 
-      {open && (
-        <div className="border-t border-slate-200 bg-white px-5 py-5 shadow-xl lg:hidden">
+      <div
+        className={`overflow-hidden border-t border-slate-200 bg-white shadow-xl transition-all duration-300 ease-out lg:hidden ${
+          open
+            ? "max-h-[650px] translate-y-0 opacity-100"
+            : "max-h-0 -translate-y-2 opacity-0"
+        }`}
+      >
+        <div className="px-5 py-5">
           <div className="grid gap-2">
             {links.map(([label, path]) => (
               <NavLink
@@ -90,8 +96,8 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   isActive
-                    ? "rounded-2xl bg-slate-950 px-5 py-4 font-black text-white"
-                    : "rounded-2xl px-5 py-4 font-bold text-slate-700 hover:bg-slate-100"
+                    ? "rounded-2xl bg-red-50 px-5 py-4 font-black text-[#B91C1C] shadow-sm"
+                    : "rounded-2xl px-5 py-4 font-bold text-slate-700 transition hover:bg-red-50 hover:text-[#B91C1C]"
                 }
               >
                 {label}
@@ -101,7 +107,7 @@ export default function Navbar() {
             <div className="mt-4 grid gap-3 border-t border-slate-200 pt-4">
               <a
                 href="tel:16174153493"
-                className="flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-4 font-black text-slate-950"
+                className="flex items-center justify-center gap-2 rounded-full border border-red-100 bg-red-50 px-6 py-4 font-black text-[#B91C1C] transition hover:bg-red-100"
               >
                 <Phone size={18} />
                 Call Now
@@ -110,14 +116,14 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="rounded-full bg-[#B91C1C] px-6 py-4 text-center font-black text-white shadow-lg shadow-red-200"
+                className="rounded-full bg-[#B91C1C] px-6 py-4 text-center font-black text-white shadow-lg shadow-red-200 transition hover:bg-red-700"
               >
                 Book Service
               </Link>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
