@@ -88,14 +88,14 @@ export default function Home() {
 
           <button
             type="submit"
-            className="rounded-full bg-[#D7262E] px-6 py-4 font-black text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C]"
+            className="flex w-full items-center justify-center rounded-full bg-[#D7262E] px-6 py-4 text-center font-black text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C]"
           >
             Request Service / Get Quote
           </button>
 
           <a
             href={phoneHref}
-            className="rounded-full bg-[#0F172A] px-6 py-4 text-center font-black text-white transition hover:bg-[#1E293B]"
+            className="flex w-full items-center justify-center rounded-full bg-[#0F172A] px-6 py-4 text-center font-black text-white transition hover:bg-[#1E293B]"
           >
             Call Now: {phone}
           </a>
@@ -114,7 +114,7 @@ export default function Home() {
 
           <a
             href={phoneHref}
-            className="w-full rounded-full bg-[#D7262E] px-6 py-3 text-center font-black text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C] sm:w-auto"
+            className="flex w-full items-center justify-center rounded-full bg-[#D7262E] px-6 py-3 text-center font-black text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C] sm:w-auto"
           >
             Call Now: {phone}
           </a>
@@ -149,15 +149,15 @@ export default function Home() {
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href={phoneHref}
-                  className="rounded-full bg-[#D7262E] px-8 py-4 text-center font-black text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C]"
+                  className="flex w-full items-center justify-center rounded-full bg-[#D7262E] px-8 py-4 text-center font-black text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C] sm:w-auto"
                 >
-                  <Phone className="mr-2 inline h-5 w-5" />
+                  <Phone className="mr-2 h-5 w-5" />
                   Call Now: {phone}
                 </a>
 
                 <a
                   href="#quote"
-                  className="rounded-full border border-slate-300 bg-white px-8 py-4 text-center font-black text-[#0F172A] shadow-sm transition hover:border-[#C99700] hover:text-[#C99700]"
+                  className="flex w-full items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-4 text-center font-black text-[#0F172A] shadow-sm transition hover:border-[#C99700] hover:text-[#C99700] sm:w-auto"
                 >
                   Get Quote
                 </a>
@@ -176,7 +176,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative">
+            <div>
               <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-2xl shadow-slate-300/70">
                 <div
                   className="flex min-h-[500px] items-end bg-cover bg-center p-8"
@@ -193,22 +193,13 @@ export default function Home() {
                     <h2 className="mt-3 max-w-xl text-3xl font-black text-white md:text-5xl">
                       Professional brake service without the shop wait.
                     </h2>
-                  </div>
-                </div>
-              </div>
 
-              <div className="absolute -bottom-8 left-6 right-6 rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-2xl">
-                <div className="flex items-center gap-4">
-                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#D7262E] text-white">
-                    <Phone />
-                  </div>
-
-                  <div>
-                    <p className="text-xs font-black uppercase tracking-[0.18em] text-[#C99700]">
-                      Need brake service?
-                    </p>
-                    <a href={phoneHref} className="text-xl font-black text-[#0F172A]">
-                      {phone}
+                    <a
+                      href={phoneHref}
+                      className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#D7262E] px-8 py-4 text-center font-black text-white shadow-lg shadow-red-900/30 transition hover:bg-[#B91C1C] sm:w-auto"
+                    >
+                      <Phone className="mr-2 h-5 w-5" />
+                      Call Now: {phone}
                     </a>
                   </div>
                 </div>
@@ -255,19 +246,17 @@ export default function Home() {
 
             <a
               href={phoneHref}
-              className="mt-8 inline-flex rounded-full bg-[#D7262E] px-8 py-4 font-black text-white shadow-lg shadow-red-200"
+              className="mt-8 flex w-full items-center justify-center rounded-full bg-[#D7262E] px-8 py-4 text-center font-black text-white shadow-lg shadow-red-200 sm:inline-flex sm:w-auto"
             >
               Call For Brake Service
             </a>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {services.map((item, index) => (
               <div
                 key={item}
-                className={`rounded-[2rem] border border-slate-200 bg-[#F8FAFC] p-6 shadow-lg shadow-slate-200/70 ${
-                  index % 2 === 1 ? "sm:translate-y-8" : ""
-                }`}
+                className="rounded-[2rem] border border-slate-200 bg-[#F8FAFC] p-6 shadow-lg shadow-slate-200/70"
               >
                 <p className="text-5xl font-black text-[#FFF1B8]">
                   0{index + 1}
@@ -330,7 +319,7 @@ export default function Home() {
 
             <a
               href={phoneHref}
-              className="mt-8 inline-flex rounded-full bg-[#E8C547] px-8 py-4 text-center font-black text-[#0F172A]"
+              className="mt-8 flex w-full items-center justify-center rounded-full bg-[#E8C547] px-8 py-4 text-center font-black text-[#0F172A] sm:inline-flex sm:w-auto"
             >
               Call {phone}
             </a>
@@ -352,7 +341,7 @@ export default function Home() {
 
             <a
               href={phoneHref}
-              className="rounded-full bg-[#D7262E] px-8 py-4 text-center font-black text-white shadow-lg shadow-red-200"
+              className="flex w-full items-center justify-center rounded-full bg-[#D7262E] px-8 py-4 text-center font-black text-white shadow-lg shadow-red-200 sm:w-auto"
             >
               Call Now
             </a>
@@ -383,8 +372,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-         
         </div>
       </section>
 
@@ -406,7 +393,7 @@ export default function Home() {
 
             <a
               href={phoneHref}
-              className="mt-8 inline-flex rounded-full bg-[#E8C547] px-8 py-4 font-black text-[#0F172A]"
+              className="mt-8 flex w-full items-center justify-center rounded-full bg-[#E8C547] px-8 py-4 text-center font-black text-[#0F172A] sm:inline-flex sm:w-auto"
             >
               Call {phone}
             </a>
@@ -449,7 +436,7 @@ export default function Home() {
 
             <a
               href={phoneHref}
-              className="mt-8 inline-flex rounded-full bg-[#E8C547] px-8 py-4 font-black text-[#0F172A]"
+              className="mt-8 flex w-full items-center justify-center rounded-full bg-[#E8C547] px-8 py-4 text-center font-black text-[#0F172A] sm:inline-flex sm:w-auto"
             >
               Call {phone}
             </a>
