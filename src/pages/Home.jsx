@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import {
   Clock,
   MapPin,
@@ -7,12 +8,24 @@ import {
   CheckCircle,
   Star,
   ClipboardCheck,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import CTA from "../components/CTA";
+import car1 from "../assets/car1.jpg";
+import car2 from "../assets/car2.jpg";
+import car3 from "../assets/car3.jpg";
+import car4 from "../assets/car4.jpg";
+import car5 from "../assets/car5.jpg";
+import car6 from "../assets/car6.jpg";
+import car8 from "../assets/car8.jpg";
+import car9 from "../assets/car9.JPG";
+import car10 from "../assets/car10.jpg";
 
 export default function Home() {
   const phone = "980-999-0319";
   const phoneHref = "tel:9809990319";
+  const galleryRef = useRef(null);
 
   const trustItems = [
     ["Mobile Brake Repair", "We come to your home, work, or safe location.", MapPin],
@@ -50,6 +63,17 @@ export default function Home() {
       text: "Great communication and honest pricing. I knew what to expect before the work started.",
     },
   ];
+
+  const galleryImages = [car2, car3, car4, car5, car6, car8, car9, car10];
+
+  function scrollGallery(direction) {
+    if (!galleryRef.current) return;
+
+    galleryRef.current.scrollBy({
+      left: direction === "left" ? -320 : 320,
+      behavior: "smooth",
+    });
+  }
 
   function QuoteForm({ dark = false }) {
     return (
@@ -181,8 +205,7 @@ export default function Home() {
                 <div
                   className="flex min-h-[500px] items-end bg-cover bg-center p-8"
                   style={{
-                    backgroundImage:
-                      "linear-gradient(to top, rgba(15,23,42,0.9), rgba(15,23,42,0.08)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1600&auto=format&fit=crop')",
+                    backgroundImage: `linear-gradient(to top, rgba(15,23,42,0.9), rgba(15,23,42,0.08)), url(${car1})`,
                   }}
                 >
                   <div>
@@ -206,6 +229,73 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <section className="mt-16">
+            <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.25em] text-[#C99700]">
+                  Work Showcase
+                </p>
+                <h2 className="mt-3 text-4xl font-black tracking-tight text-[#0F172A] md:text-5xl">
+                  Real mobile brake service photos.
+                </h2>
+              </div>
+
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => scrollGallery("left")}
+                  className="grid h-12 w-12 place-items-center rounded-full border border-slate-200 bg-white text-[#0F172A] shadow-sm transition hover:border-[#D7262E] hover:text-[#D7262E]"
+                >
+                  <ChevronLeft />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => scrollGallery("right")}
+                  className="grid h-12 w-12 place-items-center rounded-full bg-[#D7262E] text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C]"
+                >
+                  <ChevronRight />
+                </button>
+              </div>
+            </div>
+
+            <div
+              ref={galleryRef}
+              className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {galleryImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="min-w-[82%] snap-center overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-200/70 sm:min-w-[48%] lg:min-w-[31%]"
+                >
+                  <img
+                    src={image}
+                    alt={`Carolina Brake service showcase ${index + 1}`}
+                    className="h-72 w-full object-cover md:h-80"
+                  />
+
+                  <div className="flex items-center justify-between gap-4 p-5">
+                    <div>
+                      <p className="text-sm font-black uppercase tracking-[0.18em] text-[#C99700]">
+                        Service Photo
+                      </p>
+                      <p className="mt-1 font-black text-[#0F172A]">
+                        Mobile Brake Work
+                      </p>
+                    </div>
+
+                    <a
+                      href={phoneHref}
+                      className="rounded-full bg-[#0F172A] px-4 py-2 text-sm font-black text-white transition hover:bg-[#D7262E]"
+                    >
+                      Call
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
 
           <div id="quote" className="relative z-10 mt-16 grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
             <QuoteForm />

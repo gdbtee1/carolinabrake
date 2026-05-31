@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Disc3, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { business } from "../utils/constants";
+import logo from "../assets/cbd.jpg";
 
 const links = [
   ["Home", "/"],
@@ -17,7 +18,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/60 bg-white/75 shadow-sm backdrop-blur-2xl">
-      <div className="h-1 bg-gradient-to-r from-slate-950 via-[#B91C1C] to-[#C9A227]" />
+      <div className="h-1 bg-gradient-to-r from-slate-950 via-[#D7262E] to-[#C99700]" />
 
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5">
         <Link
@@ -25,16 +26,19 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
           className="group flex items-center gap-3"
         >
-          <div className="relative grid h-13 w-13 place-items-center rounded-2xl bg-slate-950 text-white shadow-xl shadow-slate-300">
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#B91C1C] via-slate-950 to-[#C9A227] opacity-80 transition group-hover:opacity-100" />
-            <Disc3 className="relative z-10" size={28} />
+          <div className="grid h-14 w-14 place-items-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-300">
+            <img
+              src={logo}
+              alt={`${business.name} logo`}
+              className="h-full w-full object-cover"
+            />
           </div>
 
           <div>
             <p className="text-xl font-black tracking-tight text-slate-950">
               {business.name}
             </p>
-            <p className="text-xs font-black uppercase tracking-[0.2em] text-[#B91C1C]">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-[#D7262E]">
               Premium Mobile Brake Service
             </p>
           </div>
@@ -47,8 +51,8 @@ export default function Navbar() {
               to={path}
               className={({ isActive }) =>
                 isActive
-                  ? "rounded-full bg-[#B91C1C] px-5 py-3 text-sm font-black text-white shadow-md shadow-red-200"
-                  : "rounded-full px-5 py-3 text-sm font-bold text-slate-600 transition hover:bg-red-50 hover:text-[#B91C1C]"
+                  ? "rounded-full bg-[#D7262E] px-5 py-3 text-sm font-black text-white shadow-md shadow-red-200"
+                  : "rounded-full px-5 py-3 text-sm font-bold text-slate-600 transition hover:bg-red-50 hover:text-[#D7262E]"
               }
             >
               {label}
@@ -58,15 +62,15 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="tel:16174153493"
-            className="grid h-12 w-12 place-items-center rounded-full border border-slate-200 bg-white text-[#B91C1C] shadow-sm transition hover:border-[#B91C1C]"
+            href="tel:9809990319"
+            className="grid h-12 w-12 place-items-center rounded-full border border-slate-200 bg-white text-[#D7262E] shadow-sm transition hover:border-[#D7262E]"
           >
             <Phone size={20} />
           </a>
 
           <Link
             to="/contact"
-            className="rounded-full bg-[#B91C1C] px-6 py-3 font-black text-white shadow-lg shadow-red-200 transition hover:bg-red-700"
+            className="rounded-full bg-[#D7262E] px-6 py-3 font-black text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C]"
           >
             Book Now
           </Link>
@@ -74,7 +78,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setOpen(!open)}
-          className="grid h-12 w-12 place-items-center rounded-2xl border border-slate-200 bg-white text-[#B91C1C] shadow-sm transition active:scale-95 lg:hidden"
+          className="grid h-12 w-12 place-items-center rounded-2xl border border-slate-200 bg-white text-[#D7262E] shadow-sm transition active:scale-95 lg:hidden"
         >
           {open ? <X /> : <Menu />}
         </button>
@@ -96,8 +100,8 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   isActive
-                    ? "rounded-2xl bg-red-50 px-5 py-4 font-black text-[#B91C1C] shadow-sm"
-                    : "rounded-2xl px-5 py-4 font-bold text-slate-700 transition hover:bg-red-50 hover:text-[#B91C1C]"
+                    ? "rounded-2xl bg-red-50 px-5 py-4 font-black text-[#D7262E] shadow-sm"
+                    : "rounded-2xl px-5 py-4 font-bold text-slate-700 transition hover:bg-red-50 hover:text-[#D7262E]"
                 }
               >
                 {label}
@@ -106,8 +110,8 @@ export default function Navbar() {
 
             <div className="mt-4 grid gap-3 border-t border-slate-200 pt-4">
               <a
-                href="tel:16174153493"
-                className="flex items-center justify-center gap-2 rounded-full border border-red-100 bg-red-50 px-6 py-4 font-black text-[#B91C1C] transition hover:bg-red-100"
+                href="tel:9809990319"
+                className="flex items-center justify-center gap-2 rounded-full border border-red-100 bg-red-50 px-6 py-4 font-black text-[#D7262E] transition hover:bg-red-100"
               >
                 <Phone size={18} />
                 Call Now
@@ -116,7 +120,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="rounded-full bg-[#B91C1C] px-6 py-4 text-center font-black text-white shadow-lg shadow-red-200 transition hover:bg-red-700"
+                className="rounded-full bg-[#D7262E] px-6 py-4 text-center font-black text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C]"
               >
                 Book Service
               </Link>
