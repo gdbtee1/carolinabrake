@@ -34,7 +34,14 @@ export default function Services() {
     ["04", "Service Completed", "Brake work is handled cleanly, professionally, and safely.", CheckCircle],
   ];
 
-  const areas = ["Concord", "Charlotte", "Kannapolis", "Harrisburg", "Huntersville"];
+const areas = [
+  "Ballantyne",
+  "South Charlotte",
+  "Pineville",
+  "Matthews",
+  "Fort Mill",
+  "Indian Land",
+];
 
   function QuoteForm({ dark = false }) {
     return (
@@ -122,13 +129,15 @@ export default function Services() {
                 Carolina Brake & Diagnostics
               </p>
 
-              <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-[#0F172A] md:text-7xl">
-                Brake repair and diagnostics without the shop delay.
-              </h1>
+            <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-[#0F172A] md:text-7xl">
+  Mobile Brake Repair For Charlotte's Daily Drivers & Luxury Vehicles.
+</h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-                Professional mobile brake service at your home, work, or safe
-                location. Built for fast calls, easy quotes, and safer driving.
+               Professional mobile brake service throughout
+Ballantyne, South Charlotte, Pineville, Matthews,
+Fort Mill, and Indian Land. We come directly to
+your home, office, or roadside location. Built for fast calls, easy quotes, and safer driving.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -351,7 +360,56 @@ export default function Services() {
           </div>
         </div>
       </section>
+<section className="bg-[#F8FAFC] px-5 py-24">
+  <div className="mx-auto max-w-7xl">
+    <div className="text-center">
+      <p className="text-sm font-black uppercase tracking-[0.25em] text-[#C99700]">
+        Luxury Vehicle Specialists
+      </p>
 
+      <h2 className="mt-3 text-4xl font-black tracking-tight text-[#0F172A] md:text-5xl">
+        Trusted By Owners Of Premium Vehicles
+      </h2>
+
+      <p className="mx-auto mt-5 max-w-3xl leading-8 text-slate-600">
+        Carolina Brake & Diagnostics provides professional mobile brake
+        repair, brake pad replacement, rotor replacement, inspections,
+        and diagnostics for luxury, imported, domestic, and performance
+        vehicles throughout Ballantyne, South Charlotte, Pineville,
+        Matthews, Fort Mill, and Indian Land.
+      </p>
+    </div>
+
+    <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+        "Mercedes-Benz",
+        "BMW",
+        "Audi",
+        "Lexus",
+        "Tesla",
+        "Porsche",
+        "Land Rover",
+        "Jaguar",
+      ].map((brand) => (
+        <div
+          key={brand}
+          className="rounded-2xl border border-slate-200 bg-white px-6 py-5 text-center font-black text-[#0F172A] shadow-lg shadow-slate-200/60"
+        >
+          {brand}
+        </div>
+      ))}
+    </div>
+
+    <div className="mt-10 flex justify-center">
+      <a
+        href={phoneHref}
+        className="rounded-full bg-[#D7262E] px-8 py-4 font-black text-white shadow-lg shadow-red-200 transition hover:bg-[#B91C1C]"
+      >
+        Call For Luxury Vehicle Service
+      </a>
+    </div>
+  </div>
+</section>
       <section className="bg-white px-5 py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -362,8 +420,9 @@ export default function Services() {
             </h2>
 
             <p className="mt-4 max-w-xl leading-8 text-slate-600">
-              Mobile brake repair available in Concord, Charlotte, Kannapolis,
-              Harrisburg, Huntersville, and nearby areas.
+            Mobile brake repair available throughout Ballantyne,
+South Charlotte, Pineville, Matthews, Fort Mill,
+Indian Land, and surrounding communities.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
